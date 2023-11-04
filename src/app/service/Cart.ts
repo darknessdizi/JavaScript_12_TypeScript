@@ -8,18 +8,18 @@ import Buyable from '../domain/Buyable';
 //     }
 
 //     getAll(): Buyable[] {
-//         return [...this.items]; 
+//         return [...this.items];
 //     }
 // }
 
 export default class Cart {
-    private _items: Buyable[] = [];
+  private _items: Buyable[] = [];
 
-    add(item: Buyable): void {
-        this._items.push(item);
-    }
+  add(item: Buyable): void {
+    this._items.push(item);
+  }
 
-    get items(): Buyable[] {
-        return [...this._items]; 
-    }
+  get items(): Buyable[] {
+    return [...this._items];
+  }
 }
