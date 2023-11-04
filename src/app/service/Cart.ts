@@ -22,4 +22,12 @@ export default class Cart {
   get items(): Buyable[] {
     return [...this._items];
   }
+
+  // totalPriceWithoutDiscount(): number {
+  //   const result: number = 0;
+  //   this._items.reduce((sum: number, current: Buyable) => {
+  //     return sum = sum + current.price;
+  //   }, 0);
+  //   return result;
+  // }
 }
