@@ -6,8 +6,20 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   module: {
     rules: [
+      {
+        // test: /\.([cm]?ts|tsx)$/,
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+        },
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
