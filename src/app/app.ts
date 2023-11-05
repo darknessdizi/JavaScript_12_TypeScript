@@ -15,6 +15,16 @@ cart.add(
   ),
 );
 
+cart.add(
+  new Book(
+    15,
+    'Егерь Императрицы',
+    'Андрей Булычев',
+    2010,
+    1500,
+  ),
+);
+
 console.log(cart.items);
 
 cart.add(
@@ -31,4 +41,8 @@ cart.add(
     500,
   ),
 );
+console.log(cart.items);
+console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
+console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));
+cart.delete(15);
 console.log(cart.items);
