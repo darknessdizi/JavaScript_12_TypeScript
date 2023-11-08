@@ -1,6 +1,7 @@
 import Cart from './service/Cart';
 import Book from './domain/Book';
 import Movie from './domain/Movie';
+import Smartpfone from './domain/smartphone';
 
 const cart = new Cart();
 console.log(cart.items);
@@ -20,7 +21,7 @@ cart.add(
     15,
     'Егерь Императрицы',
     'Андрей Булычев',
-    2010,
+    2000,
     1500,
   ),
 );
@@ -46,3 +47,12 @@ console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
 console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));
 cart.delete(15);
 console.log(cart.items);
+
+const smartphone = new Smartpfone(5, 'Samsung', 1500);
+cart.add(smartphone);
+cart.add(smartphone);
+
+console.log(cart.items);
+
+console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
+console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));

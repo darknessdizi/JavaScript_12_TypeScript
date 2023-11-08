@@ -16,6 +16,19 @@ export default class Cart {
   private _items: Buyable[] = [];
 
   add(item: Buyable): void {
+    if (Object.prototype.hasOwnProperty.call(item, 'count')) {
+      const index = this._items.indexOf(item);
+      if (index >= 0) {
+        let number = this._items[index].count;
+        if (number) {
+          number += 1;
+          this._items[index].count = number;
+          const { price } = this._items[index];
+          this._items[index].price = price * number;
+          return;
+        }
+      }
+    }
     this._items.push(item);
   }
 

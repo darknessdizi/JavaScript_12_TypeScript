@@ -1,5 +1,7 @@
 # Домашнее задание к лекции «TypeScript»
 
+[![Build status](https://ci.appveyor.com/api/projects/status/gnhl3nmle5f4tg6x?svg=true)](https://ci.appveyor.com/project/darknessdizi/javascript-12-typescript)
+
 ## Новые типы
 
 ### Описание
