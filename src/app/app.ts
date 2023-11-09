@@ -26,7 +26,7 @@ cart.add(
   ),
 );
 
-console.log(cart.items);
+console.log('2 элемента', cart.items);
 
 cart.add(
   new Movie(
@@ -42,17 +42,26 @@ cart.add(
     500,
   ),
 );
-console.log(cart.items);
+console.log('3 элемента', cart.items);
 console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
 console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));
 cart.delete(15);
-console.log(cart.items);
+console.log('2 элемента', cart.items);
 
 const smartphone = new Smartpfone(5, 'Samsung', 1500);
 cart.add(smartphone);
 cart.add(smartphone);
 
-console.log(cart.items);
+console.log('2 элемента и 2 смартфона', cart.items);
+console.log(`Колличество смартфонов: ${cart.items[2].count}`);
+
+console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
+console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));
+
+cart.delete(5);
+// cart.delete(5);
+
+console.log('2 элемента и 1 смартфон', cart.items);
 
 console.log('Общая стоимость', cart.totalPriceWithoutDiscount());
 console.log('Общая стоимость со скидкой 5%', cart.discountedPrice(5));

@@ -1,5 +1,6 @@
 import Cart from '../service/Cart';
 import Movie from '../domain/Movie';
+import Smartpfone from '../domain/smartphone';
 
 const movie1 = new Movie(
   12,
@@ -40,4 +41,22 @@ test('Тест создания класса Cart', () => {
   expect(obj.discountedPrice(5)).toBe(2850);
   obj.delete(15);
   expect(obj.items).toHaveLength(1);
+});
+
+const smartphone = new Smartpfone(5, 'Samsung', 1500);
+
+test('Тест добавления и удаления класса Smartpfone', () => {
+  const obj = new Cart();
+  obj.add(smartphone);
+  expect(obj.items).toHaveLength(1);
+  expect(obj.items[0]).toBeInstanceOf(Smartpfone);
+  expect(obj.items[0].count).toBe(1);
+  obj.add(smartphone);
+  expect(obj.items).toHaveLength(1);
+  expect(obj.items[0].count).toBe(2);
+  obj.delete(5);
+  expect(obj.items).toHaveLength(1);
+  expect(obj.items[0].count).toBe(1);
+  obj.delete(5);
+  expect(obj.items).toHaveLength(0);
 });

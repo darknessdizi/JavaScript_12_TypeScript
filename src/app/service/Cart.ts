@@ -41,13 +41,22 @@ export default class Cart {
   }
 
   discountedPrice(discount: number): number {
-    const summa: number = this.totalPriceWithoutDiscount();
-    const result: number = summa - (summa / 100) * discount;
+    const summa = this.totalPriceWithoutDiscount();
+    const result = summa - (summa / 100) * discount;
     return result;
   }
 
   delete(id: number): void {
-    const index: number = this._items.findIndex((item) => item.id === id);
+    const index = this._items.findIndex((item) => item.id === id);
+    if (Object.prototype.hasOwnProperty.call(this._items[index], 'count')) {
+      const { count } = this._items[index];
+      if (count) {
+        this._items[index].count = count - 1;
+      }
+      if (this._items[index].count !== 0) {
+        return;
+      }
+    }
     this._items.splice(index, 1);
   }
 }
